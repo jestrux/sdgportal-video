@@ -13,35 +13,72 @@
     <script src="js/gsap.min.js"></script>
     <script src="js/main.js"></script>
 </head>
-<body>
-    <div class="fixed pin-b pin-x flex items-center justify-center z-50 opacity-0 hover-opacity-1">
-        <button class="p-3" onclick="playAnimation()">PLAY</button>
-        <button class="p-3" onclick="stopAnimation()">STOP</button>
-    </div>
+<body style="color: #0e2952">
 
-    <audio id="music" src="music/sound-2.mp3" preload loop></audio>
-    <audio id="voice1" src="voice-over/scene-1.mp3" preload></audio>
+    <div style="background: #ebedf1;" class="fixed pin flex flex-col items-center justify-center uppercase"></div>
 
-    <div id="scene1" class="fixed pin flex flex-col items-center justify-center uppercase"
-        style="background: #ebedf1; color: #0e2952">
-        <div class="flex items-center">
-            <div id="text" class="flex-1 mr-16">
-                <strong class="text-3xl mb-3 tracking-wide" style="opacity: 0.8">
-                    Welcome to the
-                </strong>
-                <h1 class="font-hairline tracking-wide" style="font-size: 4rem">
-                    Tanzania SDGs
-                    Sustainability portal
-                </h1>
+    <div class="section-wrapper">
+        <div class="fixed pin-b pin-x flex items-center justify-center z-50 opacity-0 hover-opacity-1">
+            <button class="p-3" onclick="playAnimation()">PLAY</button>
+            <button class="p-3" onclick="stopAnimation()">STOP</button>
+        </div>
+    
+        <audio id="music" src="music/sound-2.mp3" preload loop></audio>
+        <audio id="voice1" src="voice-over/scene-1.mp3" preload></audio>
+        <audio id="voice2" src="voice-over/scene-2-1.aac" preload></audio>
+    
+        <div id="scene1" class="fixed pin flex items-center uppercase">
+            <div class="flex items-center justify-center">
+                <div id="text" class="mr-6" style="max-width: 40%;">
+                    <strong class="text-3xl mb-3 tracking-wide" style="opacity: 0.8">
+                        Welcome to the
+                    </strong>
+                    <h1 class="font-hairline tracking-wide" style="font-size: 4rem">
+                        Tanzania SDGs
+                        Sustainability portal
+                    </h1>
+                </div>
+    
+                <div class="relative flex-no-shrink rounded-full"
+                    style="width: 45%; padding-bottom: 45%">
+                    <div id="circle" class="absolute pin rounded-full m-auto"
+                        style="background: #c4ddfa"></div>
+                    <img style="left: -1%; width: 102%; height: 100%; object-fit: contain;" class="absolute" src="images/scene-1-pc.png" alt="">
+                </div>
             </div>
+        </div>
+        
+        <div id="scene2" class="fixed pin flex items-center uppercase">
+            <div class="flex items-center justify-center">
+                <div id="image" class="relative flex-no-shrink rounded-full overflow-hidden"
+                    style="width: 45%; padding-bottom: 45%; border:1px solid transparent;">
+                    <div id="circle" class="absolute pin rounded-full m-auto"
+                        style="background: #c4ddfa"></div>
 
-            <div class="relative flex-no-shrink rounded-full"
-                style="width: 50%; padding-bottom: 50%">
-                <div id="circle" class="absolute pin rounded-full m-auto"
-                    style="background: #c4ddfa"></div>
-                <img style="left: -1%; width: 102%; height: 100%; object-fit: contain;" class="absolute" src="images/scene-1-pc.png" alt="">
+                    <img style="width: 150%;" 
+                        class="absolute" src="images/scene-2.png" alt="">
+                </div>
+
+                <div id="text" class="ml-20" style="max-width: 40%;">
+                    <!-- <strong class="text-2xl block mb-6 tracking-wide" style="opacity: 0.8">
+                        Learn about the goals
+                    </strong> -->
+                    <li class="font-hairline tracking-wide mb-5" style="font-size: 3rem">
+                        Eliminating Poverty
+                    </li>
+                    <li class="font-hairline tracking-wide mb-5" style="font-size: 3rem">
+                        Gender Equality
+                    </li>
+                    <li class="font-hairline tracking-wide mb-5" style="font-size: 3rem">
+                        Clean Energy
+                    </li>
+                    <li class="font-hairline tracking-wide mb-5" style="font-size: 3rem">
+                        And More
+                    </li>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>

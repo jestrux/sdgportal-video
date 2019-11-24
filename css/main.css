@@ -1,3 +1,10 @@
+.section-wrapper{
+    position: relative;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 2em;
+}
+
 .hover-opacity-1:hover{
     opacity: 1 !important;
 }

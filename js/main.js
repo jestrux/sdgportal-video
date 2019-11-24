@@ -1,10 +1,16 @@
-const scene1 = gsap.timeline({paused:true});
+const timeline = gsap.timeline({paused:true});
+const scene1 = gsap.timeline();
+const scene2 = gsap.timeline();
 const scenes = {
-    1: scene1
+    1: scene1,
+    2: scene2
 };
 
 window.onload = function (){
     setScene1();
+    timeline.add(scene1);
+    setScene2();
+    timeline.add(scene2);
 };
 
 function setScene1(){
@@ -17,20 +23,44 @@ function setScene1(){
     scene1.to('#scene1 img', {duration: 0.2, opacity: 0, scale: 0.9}, "+3.6");
 }
 
+function setScene2(){
+    scene2.fromTo('#scene2 #image', 
+        {duration: 0.9, opacity: 0, x: '45%', scale: 0.7},
+        {duration: 1.5, opacity: 1, x: '45%', scale: 1},
+    );
+    scene2.from('#scene2 img', {duration: 3, y: '100%', x: '0'});
+    scene2.fromTo('#scene2 #image', 
+        {x: '20%'},
+        {duration: 0.9, x: 0}
+    );
+    scene2.fromTo('#scene2 img', 
+        {duration: 3, x: '0'}, 
+        {duration: 3, x: '-20%'}, 
+    "+5.5");
+    scene2.from('#scene2 li', {duration: 0.2, opacity: 0, y: '-10%', stagger: 1.5}, "+5");
+    scene2.to('#scene2 img', {duration: 3, x: '-30%', y: '-20%'});
+}
+
 function playMusic(){
     document.querySelector("#music").volume = 0.5;
     document.querySelector("#music").play();
 }
 
 function playVoiceOver(scene = 1){
-    document.querySelector(`#voice${scene}`).play();
+    // document.querySelector(`#voice${scene}`).play();
+
+    document.querySelector(`#voice1`).play();
+    setTimeout(() => {
+        document.querySelector(`#voice2`).play();
+    }, 4000);
 }
 
-function playAnimation(scene = 1){
+function playAnimation(scene = 2){
     setTimeout(() => {
         playVoiceOver(scene);
         playMusic();
-        scenes[scene].play();
+        // scenes[scene].play();
+        timeline.play();
     }, 1000);
 }
 
