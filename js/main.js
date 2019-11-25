@@ -4,12 +4,14 @@ const scene2 = gsap.timeline();
 const scene3 = gsap.timeline();
 const scene4 = gsap.timeline();
 const scene5 = gsap.timeline();
+const scene6 = gsap.timeline();
 const scenes = {
     1: scene1,
     2: scene2,
     3: scene3,
     4: scene4,
-    5: scene5
+    5: scene5,
+    6: scene6
 };
 
 window.onload = function (){
@@ -23,6 +25,8 @@ window.onload = function (){
     timeline.add(scene4);
     setScene5();
     timeline.add(scene5);
+    setScene6();
+    timeline.add(scene6);
 
     Object.values(scenes).forEach((scene, index) => {
         scene.eventCallback("onStart", () => {
@@ -83,6 +87,7 @@ function setScene4(){
     scene4.to('#scene3', {delay: 1.75, duration: 0.4, opacity: 0, scale: 1.15});
     scene4.from('#scene4', {duration: 0.6, opacity: 0, scale: 1.15});
     scene4.from('#scene4 .submit-project', {delay: 6.1, opacity: 0.01, duration: .2, stagger: 2.8});
+    scene4.to('#scene4', {duration: 0.4, opacity: 0, scale: 0.8});
 }
 
 function setScene5(){
@@ -97,10 +102,19 @@ function setScene5(){
     scene5.to('#scene5 #newsAndEvents', {duration: 1, scale: 1.1});
     scene5.from('#scene5 #submitEvent', {duration: 0.3, opacity: 0, scale: 0.9});
     scene5.to('#scene5 #submitEvent', {duration: 4, y: '-30%'});
+    scene5.to('#scene5', {duration: 0.4, opacity: 0});
+}
+
+function setScene6(){
+    scene6.from('#scene6 #list', {duration: 0.1, opacity: '0'});
+    scene6.to('#scene6 #list', {duration: 8, rotationY: '-25deg', y: '-30%', scale: 0.85});
+    scene6.to('#scene6 #list', {duration: 6, rotationY: '-25deg', y: '0', scale: 1});
+    // scene6.from('#scene6 #filter', {duration: 2, opacity: 0});
+    // scene6.to('#scene6 #filter', {duration: 2, rotationY: '-25deg', y: '-20%', scale: 1});
 }
 
 function playMusic(){
-    document.querySelector("#music").volume = 0.3;
+    document.querySelector("#music").volume = 0.2;
     document.querySelector("#music").play();
 }
 
@@ -116,7 +130,7 @@ function playVoiceOver(scene = 1){
     }, 14000);
 }
 
-function playAnimation(scene = 5){
+function playAnimation(scene = 6){
     setTimeout(() => {
         // playVoiceOver(scene);
         playMusic();
