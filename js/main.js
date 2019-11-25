@@ -2,10 +2,12 @@ const timeline = gsap.timeline({paused:true});
 const scene1 = gsap.timeline();
 const scene2 = gsap.timeline();
 const scene3 = gsap.timeline();
+const scene4 = gsap.timeline();
 const scenes = {
     1: scene1,
     2: scene2,
-    3: scene3
+    3: scene3,
+    4: scene4
 };
 
 window.onload = function (){
@@ -15,11 +17,20 @@ window.onload = function (){
     timeline.add(scene2);
     setScene3();
     timeline.add(scene3);
+    setScene4();
+    timeline.add(scene4);
 
     Object.values(scenes).forEach((scene, index) => {
         scene.eventCallback("onStart", () => {
             document.querySelector(`#voice${index + 1}`).play();
         });
+        
+        // scene.eventCallback("onComplete", () => {
+        //     setTimeout(() => {
+        //         document.querySelector(`#voice${index + 1}`).pause();
+        //         document.querySelector(`#voice${index + 1}`).currentTime = 0;
+        //     }, 200);
+        // });
     });
 
     timeline.eventCallback("onComplete", () => {
@@ -64,6 +75,12 @@ function setScene3(){
     scene3.to('#scene3 #detail', {duration: 1.5, scale: 0.95, y: "-67%", x: "5%"});
 }
 
+function setScene4(){
+    scene4.to('#scene3', {delay: 1.75, duration: 0.4, opacity: 0, scale: 1.15});
+    scene4.from('#scene4', {duration: 0.6, opacity: 0, scale: 1.15});
+    scene4.from('#scene4 .submit-project', {delay: 6.1, opacity: 0.01, duration: .2, stagger: 2.8});
+}
+
 function playMusic(){
     document.querySelector("#music").volume = 0.3;
     document.querySelector("#music").play();
@@ -81,7 +98,7 @@ function playVoiceOver(scene = 1){
     }, 14000);
 }
 
-function playAnimation(scene = 3){
+function playAnimation(scene = 4){
     setTimeout(() => {
         // playVoiceOver(scene);
         playMusic();
