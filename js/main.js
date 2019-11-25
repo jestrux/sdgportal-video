@@ -3,11 +3,13 @@ const scene1 = gsap.timeline();
 const scene2 = gsap.timeline();
 const scene3 = gsap.timeline();
 const scene4 = gsap.timeline();
+const scene5 = gsap.timeline();
 const scenes = {
     1: scene1,
     2: scene2,
     3: scene3,
-    4: scene4
+    4: scene4,
+    5: scene5
 };
 
 window.onload = function (){
@@ -19,6 +21,8 @@ window.onload = function (){
     timeline.add(scene3);
     setScene4();
     timeline.add(scene4);
+    setScene5();
+    timeline.add(scene5);
 
     Object.values(scenes).forEach((scene, index) => {
         scene.eventCallback("onStart", () => {
@@ -81,6 +85,20 @@ function setScene4(){
     scene4.from('#scene4 .submit-project', {delay: 6.1, opacity: 0.01, duration: .2, stagger: 2.8});
 }
 
+function setScene5(){
+    scene5.from('#scene5 #circle', {duration: 0.4, opacity: 0, y: '300%'});
+    scene5.to('#scene5 #circle', {duration: 0.4, scale: 1.2});
+    scene5.to('#scene5 #circle', {duration: 0.4, scale: 1});
+    scene5.to('#scene5 #circle', {duration: 0.4, scale: 8});
+    scene5.from('#scene5 #newsAndEvents', {duration: 0.3, opacity: 0}, "+1.2");
+    scene5.from('#scene5 #newsAndEvents', {duration: 3, y: '30%'});
+    scene5.to('#scene5 #newsAndEvents', {duration: 2.4, y: '0%'});
+    scene5.to('#scene5 #newsAndEvents', {duration: 5, y: '-25%'});
+    scene5.to('#scene5 #newsAndEvents', {duration: 1, scale: 1.1});
+    scene5.from('#scene5 #submitEvent', {duration: 0.3, opacity: 0, scale: 0.9});
+    scene5.to('#scene5 #submitEvent', {duration: 4, y: '-30%'});
+}
+
 function playMusic(){
     document.querySelector("#music").volume = 0.3;
     document.querySelector("#music").play();
@@ -98,7 +116,7 @@ function playVoiceOver(scene = 1){
     }, 14000);
 }
 
-function playAnimation(scene = 4){
+function playAnimation(scene = 5){
     setTimeout(() => {
         // playVoiceOver(scene);
         playMusic();
