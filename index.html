@@ -16,7 +16,7 @@
 <body style="color: #0e2952;">
     <div style="background: #000;" class="fixed pin flex flex-col items-center justify-center uppercase m-auto"></div>
 
-    <div style="width: 1280px; height: 720px;background: #ebedf1;" class="fixed pin flex flex-col items-center justify-center uppercase m-auto"></div>
+    <div id="whiteBg" style="width: 1280px; height: 720px;background: #ebedf1;" class="fixed pin flex flex-col items-center justify-center uppercase m-auto"></div>
 
     <div class="section-wrapper">
         <div class="fixed pin-b pin-x flex items-center justify-center z-50 opacity-0 hover-opacity-1">
@@ -31,6 +31,7 @@
         <audio id="voice4" src="voice-over/scene-4.aac" preload></audio>
         <audio id="voice5" src="voice-over/scene-5.aac" preload></audio>
         <audio id="voice6" src="voice-over/scene-6.aac" preload></audio>
+        <audio id="voice7" src="voice-over/scene-7.aac" preload></audio>
     
         <div id="scene1" style="width: 1280px; height: 720px;" class="fixed pin flex items-center uppercase m-auto overflow-hidden">
             <div class="flex items-center justify-center">
@@ -147,9 +148,26 @@
             <img id="list" class="absolute m-auto" src="images/scene-6-1.png" alt="" 
                 style="top: 10%; width: 92%; box-shadow: -20px 0 100px rgba(0,0,0,0.3);
                     transform: rotateY(45deg);">
-            <!-- <img id="filter" class="absolute m-auto" src="images/scene-6-2.png" alt="" 
-                style="top: 10%; width: 92%; box-shadow: -20px 0 100px rgba(0,0,0,0.3);
-                    transform: rotateY(-25deg);"> -->
+        </div>
+        
+        <div id="scene7" style="width: 1280px; height: 720px; perspective: 3500px; color:  #fff;" 
+            class="fixed pin flex items-center justify-center uppercase m-auto overflow-hidden">
+
+            <div id="text" class="text-center" style="line-height: 6em;">
+                <strong class="block tracking-wide" style="opacity: 0.95; font-size: 1.4em; margin-bottom: -1em">
+                    Portal Desinged &amp; Developed By
+                </strong>
+                <h1 class="font-hairline tracking-wide" style="font-size: 3rem">
+                    ERICO GROUP CO LTD
+                </h1>
+                <p style="font-size: 4rem; font-weight: bold">
+                    +255 714 242 198
+                </p>
+                <p style="font-size: 3.1rem; font-weight: bold">
+                    info@ericogroup.co.tz
+                </p>
+            </div>
+            
         </div>
     </div>
 
