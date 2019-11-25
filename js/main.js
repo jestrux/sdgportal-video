@@ -15,6 +15,19 @@ window.onload = function (){
     timeline.add(scene2);
     setScene3();
     timeline.add(scene3);
+
+    Object.values(scenes).forEach((scene, index) => {
+        scene.eventCallback("onStart", () => {
+            document.querySelector(`#voice${index + 1}`).play();
+        });
+    });
+
+    timeline.eventCallback("onComplete", () => {
+        setTimeout(() => {
+            document.querySelector("#music").pause();
+            document.querySelector("#music").currentTime = 0;
+        }, 2000);
+    });
 };
 
 function setScene1(){
@@ -43,8 +56,8 @@ function setScene2(){
 
 function setScene3(){
     scene3.from('#scene3', {duration: 0.01, opacity: 0});
-    scene3.to('#scene3 #zoomed', {duration: 1.5, scaleY: 0.33, scaleX: 0.28, x: '-24%'});
-    scene3.to('#scene3 #zoomed', {duration: 0.5, opacity: 0}, "+1.3");
+    scene3.to('#scene3 #zoomed', {duration: 1.5, scaleY: 0.33, scaleX: 0.28, x: '-23.3%', y: '-0.78%'});
+    scene3.to('#scene3 #zoomed', {duration: 0.1, opacity: 0}, "+1.3");
     scene3.to('#scene3 #detail', {duration: 1.5, scale: 0.7, x: "-2%"}, "+1.45");
     scene3.to('#scene3 #detail', {duration: 3, y: "-37%"}, "+3.5");
     scene3.to('#scene3 #scroll', {duration: 5, y: "-70%"}, "+5");
@@ -52,7 +65,7 @@ function setScene3(){
 }
 
 function playMusic(){
-    document.querySelector("#music").volume = 0.5;
+    document.querySelector("#music").volume = 0.3;
     document.querySelector("#music").play();
 }
 
@@ -70,7 +83,7 @@ function playVoiceOver(scene = 1){
 
 function playAnimation(scene = 3){
     setTimeout(() => {
-        playVoiceOver(scene);
+        // playVoiceOver(scene);
         playMusic();
         // scenes[scene].play();
         timeline.play();
