@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SDG Portal Video</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/tailwind-utilities.min.css">
     <link rel="stylesheet" href="css/flex.css">
@@ -13,9 +13,10 @@
     <script src="js/gsap.min.js"></script>
     <script src="js/main.js"></script>
 </head>
-<body style="color: #0e2952">
+<body style="color: #0e2952;">
+    <div style="background: #000;" class="fixed pin flex flex-col items-center justify-center uppercase m-auto"></div>
 
-    <div style="background: #ebedf1;" class="fixed pin flex flex-col items-center justify-center uppercase"></div>
+    <div style="width: 1280px; height: 720px;background: #ebedf1;" class="fixed pin flex flex-col items-center justify-center uppercase m-auto"></div>
 
     <div class="section-wrapper">
         <div class="fixed pin-b pin-x flex items-center justify-center z-50 opacity-0 hover-opacity-1">
@@ -26,14 +27,15 @@
         <audio id="music" src="music/sound-2.mp3" preload loop></audio>
         <audio id="voice1" src="voice-over/scene-1.mp3" preload></audio>
         <audio id="voice2" src="voice-over/scene-2-1.aac" preload></audio>
+        <audio id="voice3" src="voice-over/scene-2-2.aac" preload></audio>
     
-        <div id="scene1" class="fixed pin flex items-center uppercase">
+        <div id="scene1" style="width: 1280px; height: 720px;" class="fixed pin flex items-center uppercase m-auto overflow-hidden">
             <div class="flex items-center justify-center">
                 <div id="text" class="mr-6" style="max-width: 40%;">
-                    <strong class="text-3xl mb-3 tracking-wide" style="opacity: 0.8">
+                    <strong class="text-3xl block mb-3 tracking-wide" style="opacity: 0.8">
                         Welcome to the
                     </strong>
-                    <h1 class="font-hairline tracking-wide" style="font-size: 4rem">
+                    <h1 class="font-hairline tracking-wide" style="font-size: 3.6rem">
                         Tanzania SDGs
                         Sustainability portal
                     </h1>
@@ -48,7 +50,7 @@
             </div>
         </div>
         
-        <div id="scene2" class="fixed pin flex items-center uppercase">
+        <div id="scene2" style="width: 1280px; height: 720px;" class="fixed pin flex items-center uppercase m-auto overflow-hidden">
             <div class="flex items-center justify-center">
                 <div id="image" class="relative flex-no-shrink rounded-full overflow-hidden"
                     style="width: 45%; padding-bottom: 45%; border:1px solid transparent;">
@@ -63,18 +65,39 @@
                     <!-- <strong class="text-2xl block mb-6 tracking-wide" style="opacity: 0.8">
                         Learn about the goals
                     </strong> -->
-                    <li class="font-hairline tracking-wide mb-8" style="font-size: 3rem">
+                    <li class="font-hairline tracking-wide mb-8" style="font-size: 2.6rem">
                         Eliminating Poverty
                     </li>
-                    <li class="font-hairline tracking-wide mb-8" style="font-size: 3rem">
+                    <li class="font-hairline tracking-wide mb-8" style="font-size: 2.6rem">
                         Gender Equality
                     </li>
-                    <li class="font-hairline tracking-wide mb-8" style="font-size: 3rem">
+                    <li class="font-hairline tracking-wide mb-8" style="font-size: 2.6rem">
                         Clean Energy
                     </li>
-                    <li class="font-hairline tracking-wide mb-8" style="font-size: 3rem">
+                    <li class="font-hairline tracking-wide mb-8" style="font-size: 2.6rem">
                         And More
                     </li>
+                </div>
+            </div>
+        </div>
+        
+        <div id="scene3" style="width: 1280px; height: 720px;" class="fixed pin flex items-center uppercase m-auto overflow-hidden">
+            <div class="flex items-center justify-center">
+                <div id="image" class="relative flex-no-shrink rounded-full overflow-hidden"
+                    style="width: 45%; padding-bottom: 45%; border:1px solid transparent;">
+                    <div id="circle" class="absolute pin rounded-full m-auto"
+                        style="background: #c4ddfa"></div>
+
+                    <div id="detail" class="absolute pin">
+                        <img style="width: 100%;" 
+                            class="absolute" src="images/scene-2-2-phone.png" alt="">
+
+                        <img id="scroll" style="width: 83%; top: 29.1%" 
+                            class="absolute pin-x m-auto" src="images/scene-2-2-scroll.png" alt="">
+                    </div>
+
+                    <img id="zoomed" style="width: 100%; height: 100%; object-fit: contain;" 
+                        class="absolute" src="images/scene-2-2.png" alt="">
                 </div>
             </div>
         </div>

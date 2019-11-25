@@ -1,9 +1,11 @@
 const timeline = gsap.timeline({paused:true});
 const scene1 = gsap.timeline();
 const scene2 = gsap.timeline();
+const scene3 = gsap.timeline();
 const scenes = {
     1: scene1,
-    2: scene2
+    2: scene2,
+    3: scene3
 };
 
 window.onload = function (){
@@ -11,6 +13,8 @@ window.onload = function (){
     timeline.add(scene1);
     setScene2();
     timeline.add(scene2);
+    setScene3();
+    timeline.add(scene3);
 };
 
 function setScene1(){
@@ -29,16 +33,22 @@ function setScene2(){
         {duration: 1.5, opacity: 1, x: '45%', scale: 1},
     );
     scene2.from('#scene2 img', {duration: 3, y: '100%', x: '0'});
-    scene2.fromTo('#scene2 #image', 
-        {x: '20%'},
-        {duration: 0.9, x: 0}
-    );
-    scene2.fromTo('#scene2 img', 
-        {duration: 3, x: '0'}, 
-        {duration: 3, x: '-20%'}, 
-    "+5.5");
+    scene2.fromTo('#scene2 #image', {x: '20%'}, {duration: 0.9, x: 0});
     scene2.from('#scene2 li', {duration: 0.2, opacity: 0, y: '-10%', stagger: 1.5}, "+5");
-    scene2.to('#scene2 img', {duration: 3, x: '-30%', y: '-20%'});
+    scene2.to('#scene2 #text', {duration: 0.2, opacity: 0}, "+10.5");
+    scene2.fromTo('#scene2 #image', {x: 0},{duration: 0.9, x: "45%"});
+    scene2.to('#scene2 img', {duration: 1, scale: 2, x: '43%', y: '-48%'});
+    scene2.to('#scene2 #image', {duration: 0, scale: 0.9, opacity: 0});
+}
+
+function setScene3(){
+    scene3.from('#scene3', {duration: 0.01, opacity: 0});
+    scene3.to('#scene3 #zoomed', {duration: 1.5, scaleY: 0.33, scaleX: 0.28, x: '-24%'});
+    scene3.to('#scene3 #zoomed', {duration: 0.5, opacity: 0}, "+1.3");
+    scene3.to('#scene3 #detail', {duration: 1.5, scale: 0.7, x: "-2%"}, "+1.45");
+    scene3.to('#scene3 #detail', {duration: 3, y: "-37%"}, "+3.5");
+    scene3.to('#scene3 #scroll', {duration: 5, y: "-70%"}, "+5");
+    scene3.to('#scene3 #detail', {duration: 1.5, scale: 0.95, y: "-67%", x: "5%"});
 }
 
 function playMusic(){
@@ -53,9 +63,12 @@ function playVoiceOver(scene = 1){
     setTimeout(() => {
         document.querySelector(`#voice2`).play();
     }, 4000);
+    setTimeout(() => {
+        document.querySelector(`#voice3`).play();
+    }, 14000);
 }
 
-function playAnimation(scene = 2){
+function playAnimation(scene = 3){
     setTimeout(() => {
         playVoiceOver(scene);
         playMusic();
